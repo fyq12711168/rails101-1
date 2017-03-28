@@ -18,13 +18,6 @@ class PostsController < ApplicationController
      render :new
    end
  end
-
-
- private
-
- def post_params
-   params.require(:post).permit(:content)
- end
  def edit
     @group = Group.find(params[:group_id])
     @post = Post.find(params[:id])
@@ -52,4 +45,12 @@ end
     flash[:alert] = "Post deleted"
     redirect_to account_posts_path
   end
+
+
+ private
+
+ def post_params
+   params.require(:post).permit(:content)
+ end
+
 end
